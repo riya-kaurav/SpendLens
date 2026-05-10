@@ -1,9 +1,6 @@
-import SpendForm from '@/components/SpendForm';
+import { redirect } from 'next/navigation';
 
-export default function AuditPage() {
-  return (
-    <main className="min-h-screen bg-gray-50 px-4 py-12">
-      <SpendForm />
-    </main>
-  );
+export default function Home() {
+  redirect('/audit');
+  return null;
 }
