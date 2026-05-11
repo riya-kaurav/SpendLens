@@ -117,7 +117,7 @@ export default function SpendForm() {
           AI Spend Audit
         </h1>
         <p className="text-sm text-gray-500">
-          Enter your current AI subscriptions. We'll tell you exactly where you're overspending.
+          Enter your current AI subscriptions. We will tell you exactly where you're overspending.
         </p>
       </div>
 
