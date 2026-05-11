@@ -155,7 +155,7 @@ export default function Home() {
       <section className="border-t border-gray-100 px-6 py-16 text-center">
         <div className="max-w-md mx-auto">
           <h2 className="text-xl font-semibold text-gray-900 mb-2">
-            Ready to see where your money's going?
+            Ready to see where your money going?
           </h2>
           <p className="text-sm text-gray-500 mb-6">
             Free audit. No account. Results in under 2 minutes.
