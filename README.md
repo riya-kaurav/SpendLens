@@ -7,11 +7,9 @@ SpendLens helps startup founders and engineering managers find out exactly where
 ---
 
 ## Screenshots
+![Ss 1](<img width="1920" height="1020" alt="SpendLens — Free AI Spend Audit for Startups and 1 more page - Personal - Microsoft​ Edge 13-05-2026 10_33_34" src="https://github.com/user-attachments/assets/9aa23d2c-3afc-4086-a224-42783dc6c6b8" />
+)
 
-> Add 3 screenshots here before submission:
-> 1. The spend input form at /audit
-> 2. A results page showing savings
-> 3. The Credex CTA on a high-savings audit
 
 ---
 
