@@ -8,10 +8,10 @@ SpendLens helps startup founders and engineering managers find out exactly where
 
 ## Screenshots
 
-> Add 3 screenshots here before submission:
-> 1. The spend input form at /audit
-> 2. A results page showing savings
-> 3. The Credex CTA on a high-savings audit
+![Ss 1](https://github.com/user-attachments/assets/9aa23d2c-3afc-4086-a224-42783dc6c6b8)
+![Ss 2](https://github.com/user-attachments/assets/601fca42-1c4f-4008-b80e-4e0d71d55419)
+![Ss 3](https://github.com/user-attachments/assets/9ff2a952-5bfd-4f2e-af5f-b98c0e3ff355)
+
 
 ---
 
