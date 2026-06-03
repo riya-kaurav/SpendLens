@@ -100,3 +100,6 @@ vercel --prod
 - **Deployment:** Vercel
 - **Testing:** Vitest
 - **CI:** GitHub Actions
+ 
+
+ ### currently this project is in working
