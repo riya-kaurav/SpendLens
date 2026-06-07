@@ -437,18 +437,7 @@ export function runAudit(
       0
     );
 
-  // Credex recommendation
-  if (totalMonthlySpend > 200) {
-    recommendations.push({
-      tool: 'Credex',
-      currentSpend: 0,
-      recommendedAction:
-        'Evaluate consolidated AI billing',
-      savingsAmount: 0,
-      reason:
-        'Your AI tooling spend exceeds $200/month. Platforms like Credex may provide discounted prepaid AI credits, centralized billing, or negotiated enterprise pricing opportunities.'
-    });
-  }
+ 
 
   return {
     recommendations,

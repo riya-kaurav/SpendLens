@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { AuditResult, FormData } from '@/types';
 import HeroSection from './HeroSection';
 import ToolCard from './ToolCard';
-import CredexCTA from './CredexCTA';
 import LeadCapture from './LeadCapture';
 
 interface AuditResultsProps {
@@ -33,10 +32,6 @@ export default function AuditResults({ result, formData }: AuditResultsProps) {
   const summary = generateFallbackSummary(result, formData);
   const shareUrl = `${window.location.origin}/results/${result.auditId}`;
 
-  // Filter out Credex from tool cards — it has its own component
-  const toolRecommendations = result.recommendations.filter(
-    (r) => r.tool !== 'Credex'
-  );
 
   async function handleCopyLink() {
     try {
@@ -54,10 +49,7 @@ export default function AuditResults({ result, formData }: AuditResultsProps) {
       {/* Hero */}
       <HeroSection result={result} />
 
-      {/* Credex CTA — only for high savings */}
-      {result.savingsCategory === 'high' && (
-        <CredexCTA totalMonthlySavings={result.totalMonthlySavings} />
-      )}
+     
 
       {/* Per-tool breakdown */}
       <div className="bg-white border border-gray-200 rounded-lg mb-4">
@@ -66,11 +58,7 @@ export default function AuditResults({ result, formData }: AuditResultsProps) {
             Tool Breakdown
           </h2>
         </div>
-        <div className="px-5">
-          {toolRecommendations.map((rec, i) => (
-            <ToolCard key={i} recommendation={rec} />
-          ))}
-        </div>
+       
       </div>
 
       {/* AI Summary */}

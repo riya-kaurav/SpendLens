@@ -7,8 +7,7 @@ export type AITool =
   | 'GitHub Copilot'
   | 'Windsurf'
   | 'Anthropic API'
-  | 'OpenAI API'
-  | 'Credex';
+  | 'OpenAI API';
 
 export type ToolPlan = string;
 
