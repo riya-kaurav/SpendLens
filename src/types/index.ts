@@ -23,6 +23,7 @@ export interface ToolInput {
   plan: ToolPlan;
   monthlySpend: number;
   seats: number;
+  monthlyTokenSpend?: number; 
 }
 
 export interface FormData {

@@ -29,6 +29,8 @@ export default function ToolRow({
     });
   }
 
+  const API_TOOLS = ['Anthropic API', 'OpenAI API'];
+
   return (
     <div className="grid grid-cols-12 gap-3 items-start py-4 border-b border-gray-100 last:border-0">
 
@@ -101,27 +103,58 @@ export default function ToolRow({
         </div>
       </div>
 
-      {/* Seats */}
-      <div className="col-span-5 sm:col-span-2 flex flex-col gap-1">
-        {index === 0 && (
-          <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-            Seats
-          </label>
-        )}
-        <input
-          type="number"
-          min={1}
-          value={tool.seats}
-          onChange={(e) =>
-            onChange(index, {
-              ...tool,
-              seats: parseInt(e.target.value) || 1,
-            })
-          }
-          placeholder="1"
-          className="w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent"
-        />
-      </div>
+      {/* Seats — hidden for API tools */}
+{!API_TOOLS.includes(tool.tool) && (
+  <div className="col-span-5 sm:col-span-2 flex flex-col gap-1">
+    {index === 0 && (
+      <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+        Seats
+      </label>
+    )}
+    <input
+      type="number"
+      min={1}
+      value={tool.seats}
+      onChange={(e) =>
+        onChange(index, {
+          ...tool,
+          seats: parseInt(e.target.value) || 1,
+        })
+      }
+      placeholder="1"
+      className="w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent"
+    />
+  </div>
+)}
+
+{/* Monthly Token Spend — only for API tools */}
+{API_TOOLS.includes(tool.tool) && (
+  <div className="col-span-5 sm:col-span-2 flex flex-col gap-1">
+    {index === 0 && (
+      <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+        Token Spend ($)
+      </label>
+    )}
+    <div className="relative">
+      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-400">
+        $
+      </span>
+      <input
+        type="number"
+        min={0}
+        value={tool.monthlyTokenSpend ?? ''}
+        onChange={(e) =>
+          onChange(index, {
+            ...tool,
+            monthlyTokenSpend: parseFloat(e.target.value) || 0,
+          })
+        }
+        placeholder="0"
+        className="w-full rounded-md border border-gray-200 bg-white pl-7 pr-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent"
+      />
+    </div>
+  </div>
+)}
 
       {/* Remove button */}
       <div className="col-span-1 flex flex-col gap-1">

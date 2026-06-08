@@ -27,7 +27,7 @@ export default function Home() {
 
       {/* Nav */}
       <nav className="border-b border-gray-100 px-6 py-4 flex items-center justify-between max-w-4xl mx-auto w-full">
-        <span className="text-sm font-semibold text-gray-900 tracking-tight">
+        <span className="text-xl font-semibold text-gray-900 tracking-tight">
           SpendLens
         </span>
         <Link
@@ -54,7 +54,7 @@ export default function Home() {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-base text-gray-500 mb-8 max-w-md">
+        <p className="text-base text-gray-600 mb-8 max-w-md">
           Enter your current AI subscriptions. Get an instant audit showing
           exactly where your team is overspending and what to do about it.
         </p>
@@ -67,7 +67,7 @@ export default function Home() {
           Run My Free Audit →
         </Link>
 
-        <p className="text-xs text-gray-400 mt-3">
+        <p className="text-xs text-gray-600 mt-3">
           Takes 2 minutes. No signup until you want to save your report.
         </p>
       </main>
@@ -75,7 +75,7 @@ export default function Home() {
       {/* How it works */}
       <section className="border-t border-gray-100 px-6 py-16">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide text-center mb-10">
+          <p className="text-sm font-medium text-gray-600 uppercase tracking-wide text-center mb-10">
             How it works
           </p>
 
@@ -116,7 +116,7 @@ export default function Home() {
       {/* Who it's for */}
       <section className="border-t border-gray-100 px-6 py-16 bg-gray-50">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide text-center mb-10">
+          <p className="text-sm font-medium text-gray-600 uppercase tracking-wide text-center mb-10">
             Built for
           </p>
 

@@ -280,6 +280,45 @@ export function getRecommendationForTool(
     }
   }
 
+  // Check 4 — API tool usage-based recommendations
+const isApiTool = ['Anthropic API', 'OpenAI API'].includes(input.tool);
+
+if (isApiTool) {
+  const tokenSpend = input.monthlyTokenSpend ?? input.monthlySpend;
+  const chatAlternative = input.tool === 'Anthropic API' ? 'Claude Pro' : 'ChatGPT Plus';
+  const chatPrice = input.tool === 'Anthropic API' ? 20 : 20;
+
+  if (tokenSpend < 20) {
+    return {
+      tool: input.tool,
+      currentSpend,
+      recommendedAction: `Switch to ${chatAlternative}`,
+      savingsAmount: Math.max(0, currentSpend - chatPrice),
+      reason: `Your monthly API spend is $${tokenSpend} — below the $20/month threshold where a ${chatAlternative} subscription ($${chatPrice}/month) likely covers your usage with a better experience and predictable billing.`,
+    };
+  }
+
+  if (tokenSpend >= 20 && tokenSpend <= 100) {
+    return {
+      tool: input.tool,
+      currentSpend,
+      recommendedAction: 'Review if chat plan covers your needs',
+      savingsAmount: 0,
+      reason: `Your monthly API spend is $${tokenSpend}. At this range, a ${chatAlternative} subscription may cover most of your use case at a fixed $${chatPrice}/month — worth evaluating if your usage is primarily interactive rather than automated.`,
+    };
+  }
+
+  if (tokenSpend > 100) {
+    return {
+      tool: input.tool,
+      currentSpend,
+      recommendedAction: 'Review API usage patterns',
+      savingsAmount: 0,
+      reason: `Your monthly API spend is $${tokenSpend} — this is significant. Make sure you have request caching, rate limiting, and prompt optimization in place. High API spend is normal for production workloads but worth auditing for inefficiencies.`,
+    };
+  }
+}
+
   // Already optimal
   return {
     tool: input.tool,

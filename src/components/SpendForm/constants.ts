@@ -20,7 +20,7 @@ export const TOOL_PLANS: Record<AITool, string[]> = {
   Windsurf: ['Free', 'Pro', 'Max'],
   'OpenAI API': ['Usage Based'],
   'Anthropic API': ['Usage Based'],
-  Credex: [],
+
 };
 
 export const USE_CASES: { value: UseCase; label: string }[] = [
