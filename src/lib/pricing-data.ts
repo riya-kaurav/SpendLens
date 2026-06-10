@@ -446,29 +446,7 @@ export const PRICING_DATA: Record<AITool, ToolConfig> = {
       }
     ]
   },
-         Credex: {
-  name: 'Credex',
-  plans: [
-    {
-      name: 'Advisory',
-      pricePerSeat: 0,
-      currency: 'USD',
-      minSeats: 1,
-      features: [
-        'AI procurement optimization',
-        'Centralized AI billing',
-        'Discounted prepaid credits'
-      ],
-      bestFor: [
-        'coding',
-        'writing',
-        'research',
-        'data',
-        'mixed'
-      ]
-    }
-  ]
-}
+        
 };
 
 export const SOURCE_URLS = {
