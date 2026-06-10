@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { createClient } from '@supabase/supabase-js';
 import { AuditResult } from '@/types';
+import AuditReportEmail from '@/emails/AuditReportEmail';
+import { render } from '@react-email/components';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -36,37 +38,23 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Failed to save lead' }, { status: 500 });
     }
 
-    // Build recommendations list for email
-    const recommendationLines = auditResult.recommendations
-      .filter((r) => r.savingsAmount > 0)
-      .map((r) => `• ${r.tool}: ${r.recommendedAction} — save $${r.savingsAmount.toFixed(0)}/month\n  ${r.reason}`)
-      .join('\n\n');
-
     const reportUrl = `${process.env.NEXT_PUBLIC_APP_URL}/results/${auditResult.auditId}`;
 
-    const emailBody = `
-Hi${role ? ` ${role}` : ''},
-
-Here's your SpendLens AI Spend Audit.
-
-TOTAL POTENTIAL SAVINGS
-$${auditResult.totalMonthlySavings.toFixed(0)}/month — $${auditResult.totalAnnualSavings.toFixed(0)}/year
-
-${recommendationLines.length > 0 ? `RECOMMENDATIONS\n\n${recommendationLines}` : 'Your AI stack looks well optimized. No immediate changes needed.'}
-
-View your full report here:
-${reportUrl}
-
-—
-SpendLens
-    `.trim();
+    // Render HTML email
+    const emailHtml = await render(
+      AuditReportEmail({
+        auditResult,
+        reportUrl,
+        role,
+      })
+    );
 
     // Send email via Resend
     const { error: emailError } = await resend.emails.send({
       from: 'SpendLens <onboarding@resend.dev>',
       to: email,
       subject: `Your SpendLens Audit — $${auditResult.totalMonthlySavings.toFixed(0)}/month in potential savings`,
-      text: emailBody,
+      html: emailHtml,
     });
 
     if (emailError) {
