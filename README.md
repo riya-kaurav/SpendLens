@@ -2,7 +2,7 @@
 
 SpendLens helps startup founders and engineering managers find out exactly where they're overspending on AI tools. Enter your current subscriptions, get an instant audit with specific savings recommendations, and share your report with your team.
 
-**Live URL:** https://credex-audit-alpha.vercel.app
+**Live URL:** https://spendlens-alpha.vercel.app/
 
 ---
 
